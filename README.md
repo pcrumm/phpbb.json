@@ -2,7 +2,7 @@
 ### JSON API for phpBB forums
 
 ## What is phpbb.json?
-phpbb.json is a JSON API for phpBB forums. It is designed to operate independently of the phpBB forum, but uses some phpBB components (dbal) for easy of use.
+phpbb.json is a JSON API for phpBB forums. It is designed to operate independently of the phpBB forum, but uses some phpBB components (dbal) for ease of use.
 
 ## What can I do with it?
 Whatever you'd like. You can install phpbb.json on your forum and allow users to easily create applications using your forum's data. One potential use would be a mobile phone application for phpBB forums (like Tapatalk, perhaps, but focused on phpBB forums to provide a better user experience).
