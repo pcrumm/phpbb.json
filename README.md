@@ -12,7 +12,7 @@ phpbb.json utilizes phpBB's permissions to determine what data is exposed. Users
 
 ## Development Information
 ### Who's behind this?
-This project was started by [Phil Crumm](http://github.com/pcrumm) (Phil on the phpBB community) in response to [this topic](http://www.phpbb.com/community/viewtopic.php?f=6&t=2156025).
+This project was started by [Phil Crumm](http://github.com/pcrumm) (Phil on the phpBB community) in response to [this topic](http://www.phpbb.com/community/viewtopic.php?f=6&t=2156025). See also the [development topic on phpBB.com](http://www.phpbb.com/community/viewtopic.php?f=70&t=2157397).
 
 ### Who can contribute?
 Anyone! This project is hosted on Github and licensed under GPLv2. I welcome pull requests for features, bugs, documentation, or anything else you care to contribute. If you'd like to be involved as a long-term contributor, please contact me.
