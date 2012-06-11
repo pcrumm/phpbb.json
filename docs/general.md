@@ -27,9 +27,9 @@ We JSON encode `$my_data` (we can use PHP's `json_encode()` function for this), 
 
 	{"username":"phil","realname":"Phil Crumm"}
 	
-We then submit this data, using the _data_ field of the request.
+We then submit this data, using the _data_ field of the request. We URL encode the contents of our request data.
 
-	curl -d 'data={"username":"phil","realname":"Phil Crumm"}' http://example.com/phpbb3/modue/interface
+	curl --data-urlencode 'data={"username":"phil","realname":"Phil Crumm"}' http://example.com/phpbb3/modue/interface
 	
 Note that, though we can submit this data via POST or GET, convention favors POST; this prevents the filling of logs with extraneous information, and the potential disclosure of sensitive information (e.g. passwords) in these logs.
 
