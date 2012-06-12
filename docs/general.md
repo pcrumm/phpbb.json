@@ -33,6 +33,8 @@ We then submit this data, using the _data_ field of the request. We URL encode t
 	
 Note that, though we can submit this data via POST or GET, convention favors POST; this prevents the filling of logs with extraneous information, and the potential disclosure of sensitive information (e.g. passwords) in these logs.
 
+If there is no data to be sent, an empty JSON array (`{}`) should be sent.
+
 ## Receiving Data
 ### Headers
 phpbb.json will follow standard HTTP status code conventions when replying to requests.
