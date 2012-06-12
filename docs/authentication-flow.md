@@ -9,7 +9,7 @@ If you are able to enable SSL for your board (or, at minimum, for the `api/` dir
 
 # Request Components
 ## data
-This is the main data for the request. It is a urlencode()-ed JSON array containing the information required by the individual interface to operate. Each interface's documentation specifies
+This is the main data for the request. It is a urlencode()-ed JSON array containing the information required by the individual interface to operate. Each interface's documentation specifies the required components in the _data_ field.
 
 ## timestamp
 A UTC UNIX timestamp generated at the time of request generation that represents the request. Timestamps older than **60 seconds** will be rejected by the API server.
