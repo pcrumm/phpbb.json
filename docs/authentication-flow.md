@@ -21,7 +21,7 @@ The user's urlencode()-ed username on the board. This is used as a unique identi
 A HMAC-SHA256 hash (this can be generated using PHP's [hash_hmac()](http://php.net/manual/en/function.hash-hmac.php) function) of the following format:
 
 	timestamp-username-data
-The _secret_ is a PBKDF2 (SHA-256) key of 1,000 iterations of the user's _plaintext_ password salted with the user's username. It can be generated via [this community-contributed function](http://www.php.net/manual/en/function.hash-hmac.php#108966) in PHP.
+The _secret_ is a PBKDF2 (SHA-256) key of 10,000 iterations of the user's _plaintext_ password salted with the user's username. It can be generated via [this community-contributed function](http://www.php.net/manual/en/function.hash-hmac.php#108966) in PHP.
 
 # Creating a Sample Request
 This is all a little complicated, so let's break it down a little. Let's imagine I want to submit an authenticated request to _module_/_interface_. Let's also imagine that my username is "phil", and my password is "foobar". I want to submit the following data in my request:
@@ -45,7 +45,7 @@ Now, we need to sign our request. We'll first generate the secret; we do this us
 	// … pbkdf2 implementation …
 	$username = 'phil';
 	$password = 'foobar';
-	$secret = pbkdf2('sha256', $password, $username, 1000);
+	$secret = pbkdf2('sha256', $password, $username, 10000);
 We'll get this as our secret:
 
 	9cd9bead0d3d6238476971ac0a445ff799729d92b55b56ae8961fd9e4c22c2ed
