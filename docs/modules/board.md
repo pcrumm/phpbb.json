@@ -8,7 +8,7 @@ Lists visible forums and some pertinent information for each forum. If authentic
 * parent_id (integer, optional) - The parent forum for returned forums. Defaults to 0 (all forums displayed).
 
 		curl --data-urlencode "data={}" http://example.com/phpbb/api/board/list
-		curl --data-urlencode 'data={"parent_id": "43"}' http://example.com/phpbb/api/board/list
+		curl --data-urlencode 'data={"parent_id":43}' http://example.com/phpbb/api/board/list
 
 ### Result
 A two-dimensional JSON array is returned. Each second-dimension represents a forum, and contains the following keys:
