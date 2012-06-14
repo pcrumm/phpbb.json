@@ -54,6 +54,6 @@ We use this and sign our request using the format above:
 	$hash = hash_hmac('sha256', $time . '-' . $username . '-' . $data, $secret);
 Finally, we'll submit the full request to the server in the manner of our choice. Here's an example using the command line version of cURL:
 
-	curl -d "data=%7B%22foo%22%3A%22bar%22%2C%22bar%22%3A%22foo%22%2C%22why%22%3A%22because%22%7Ds&username=phil&hash=187aa2cc4e4e95e782cfdccdd8264284f07c793485af0a974b86a601e48a000d&timestamp=1339472956" http://example.com/module/interface
+	curl -d "data=%7B%22foo%22%3A%22bar%22%2C%22bar%22%3A%22foo%22%2C%22why%22%3A%22because%22%7Ds&username=phil&hash=187aa2cc4e4e95e782cfdccdd8264284f07c793485af0a974b86a601e48a000d&timestamp=1339472956" http://example.com/phpbb/api/module/interface
 	
 You'll notice the four distinct request components: username, hash, timestamp, and data.
