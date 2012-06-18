@@ -47,7 +47,6 @@ A two-dimensional JSON array (sorted by message time, descending) representing t
 * message_author_id - (integer) Message author's numeric ID
 
 
-
 ## send
 Sends a message to the specified recipients.
 
