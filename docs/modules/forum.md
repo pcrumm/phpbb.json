@@ -13,7 +13,7 @@ Lists statistics for a forum.
 * total_replies
 
 ## list
-List topics in a forum, sorted chronologically.
+List topics in a forum, sorted chronologically (newest first).
 
 ### Data
 * forum_id - (integer) The numeric ID of the forum
