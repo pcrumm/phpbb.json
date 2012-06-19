@@ -46,6 +46,15 @@ A two-dimensional JSON array (sorted by message time, descending) representing t
 * message_author_name - (string) Message author's username
 * message_author_id - (integer) Message author's numeric ID
 
+## permissions
+Check private message-related permissions.
+
+### data
+_(None)_
+
+### Result
+* can_send - (boolean)
+
 
 ## send
 Sends a message to the specified recipients.
@@ -56,7 +65,7 @@ Sends a message to the specified recipients.
 * message_body - (string)
 
 ### Result
-* sent_time - (integer) The UTC UNIX timestamp of the message submission. *Note:* This data is merely used to confirm that the message was properly sent, and is not particularly useful in and of itself.
+* message_id - (integer)
 
 ## statistics
 Retrieves private message statistics for the current user (total messages, unread messages, etc.)
