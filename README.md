@@ -24,15 +24,18 @@ All contributed features must be testable via [phpUnit](http://phpunit.de/). Bug
 ### Planned Features
 This is a preliminary list of planned features, and is subject to change.
 
+#### Release 1.0.0
 * Authentication, with auth plugin support
 * Sessions
 * Forum listing
 * Topic posting/reply
+* Private messaging
+
+#### Future Releases
 * Topic actions (quote, report)
 * Topic moderation
 * Forum moderation
-* Private messaging
-* Push notifications?
+* Push notifications
 
 ## Installation
 This is development software and is not feature-complete nor ready for public consumption. To install on a **testing environment**, just drop the api/ folder into your board root.
