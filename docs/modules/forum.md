@@ -47,3 +47,29 @@ Meta actions: mark the entirety of a forum read or unread.
 
 ### Result
 * forum_id - (integer) Returned for confirmation purposes
+
+## new
+Create a new topic. __You must be authenticated.__
+
+### Data
+* username - (string, optional) Either username or user_id of the posting/authenticated user must be specified.
+* user_id - (integer, optional) Either username or user_id of the posting/authenticated user must be
+* forum_id - (integer)
+* topic_title - (string)
+* topic_body - (string)
+
+
+### Result
+* topic_id - (integer) The ID of the newly created topic
+
+## permissions
+Get the currently authenticated user's permissions. __You must be authenticated.__
+
+### Data
+* forum_id - (integer)
+
+### Result
+* can_see - (boolean) Can see the forum
+* can_read - (boolean) Can read the forum
+* can_post - (boolean) Can post topics to the forum
+* can_reply - (boolean) Can reply to topics in the forum
