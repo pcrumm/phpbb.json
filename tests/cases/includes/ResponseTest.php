@@ -28,8 +28,10 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 	/**
 	 * @covers \phpBBJSON\Response::merge_data
 	 * @depends testGetData
+	 *
+	 * Verifies that data is merged, and in the correct precedence.
 	 */
-	public function testMergeData()
+	public function testMergeDataPrecedence()
 	{
 		$response = $this->getResponse();
 		
