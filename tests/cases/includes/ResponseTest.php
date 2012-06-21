@@ -8,8 +8,8 @@
  * @author Phil Crumm pcrumm@p3net.net
  */
 
-require_once '../../api/constants.php';
-require_once '../../api/includes/response.php';
+require_once './../bootstrap.php';
+require_once TEST_API_ROOT . 'includes/response.php';
 
 class ResponseTest extends PHPUnit_Framework_TestCase
 {
