@@ -14,7 +14,7 @@ $phpbb_root_path = PHPBB_ROOT;
 $phpEx = PHPBB_PHP_EXT;
 
 // DB configuration
-if (file_exists($phpbb_root_path . 'configas.' . $phpEx))
+if (file_exists($phpbb_root_path . 'config.' . $phpEx))
 {
 	include($phpbb_root_path . 'config.' . $phpEx);
 }
