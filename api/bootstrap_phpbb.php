@@ -14,14 +14,13 @@ $phpbb_root_path = PHPBB_ROOT;
 $phpEx = PHPBB_PHP_EXT;
 
 // DB configuration
-if (file_exists($phpbb_root_path . 'config.' . $phpEx))
+if (file_exists($phpbb_root_path . 'configas.' . $phpEx))
 {
 	include($phpbb_root_path . 'config.' . $phpEx);
 }
 else
 {
-	print $phpbb_root_path . 'config.' . $phpEx;
-	throw new Exception('Config file not found');
+	throw new \phpBBJSON\Exception\InternalError('Config file not found');
 }
 
 // And the DBAL
@@ -31,7 +30,7 @@ if (isset($dbms))
 }
 else
 {
-	throw new Exception('Config file not properly formatted');
+	throw new \phpBBJSON\Exception\InternalError('Config file not properly formatted');
 }
 
 // Setup our phpBB "container"
