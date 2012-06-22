@@ -42,7 +42,10 @@ phpbb.json will follow standard HTTP status code conventions when replying to re
 * 200 - Request OK - Request valid and executed, reply sent
 * 400 - Bad Request - Your request was not formatted correctly (i.e. invalid/no JSON received)
 * 401 - Unauthorized - You are not authenticated as a user with permission to carry out the request
+* 500 - Internal Server Error - The API is configured incorrectly
 * 501 - Not Implemented - The requested module or interface does not exist
+
+When an error code is sent (status code != 200), the JSON reply will consist of a single "error" field that will contain the error message from the API.
 
 
 ### Data
