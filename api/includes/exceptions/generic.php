@@ -25,6 +25,5 @@ class GenericException extends \Exception
 		$response->set_data(array('error', $message));
 		
 		$response->response();
-		exit; // Quit
 	}
 }
