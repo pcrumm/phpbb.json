@@ -8,4 +8,3 @@
  */
 
 require_once 'test_constants.php';
-require_once TEST_API_ROOT . 'constants.php';
