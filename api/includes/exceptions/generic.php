@@ -25,5 +25,6 @@ class GenericException extends \Exception
 		$response->set_data(array('error', $message));
 		
 		$response->response();
+		@ob_end_clean(); // Throw away any stored response
 	}
 }
