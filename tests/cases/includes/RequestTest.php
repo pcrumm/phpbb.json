@@ -14,6 +14,32 @@ require_once TEST_API_ROOT . 'includes/request.php';
 class RequestTest extends PHPUnit_Framework_TestCase
 {
 	/**
+	 * Ensure that an invalid module generates an error.
+	 *
+	 * @covers \phpBBJSON\Response::set_module
+	 * @expectedException \phpBBJSON\Exception\BadFormat
+	 */
+	public function testInvalidModule()
+	{
+		$request = new \phpBBJSON\Request();
+		ob_start(); // So any further output is surpressed
+		$request->set_module('hello!');
+	}
+	
+	/**
+	 * Ensure that an invalid interface generates an error.
+	 *
+	 * @covers \phpBBJSON\Response::set_interface
+	 * @expectedException \phpBBJSON\Exception\BadFormat
+	 */
+	public function testInvalidInterface()
+	{
+		$request = new \phpBBJSON\Request();
+		ob_start(); // So any further output is surpressed
+		$request->set_interface('world!');
+	}
+	
+	/**
 	 * Ensure that provided data is properly set and retrieved.
 	 *
 	 * @covers \phpBBJSON\Response::get_datum

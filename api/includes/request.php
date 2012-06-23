@@ -45,6 +45,11 @@ class Request
 	 */
 	public function set_module($module = '')
 	{
+		if (!empty($module) && preg_match("/\W/", $module) == 1)
+		{
+			throw new \phpBBJSON\Exception\BadFormat('The specified module used unauthorized characters.');
+		}
+		
 		$this->module = $module;
 	}
 	
@@ -65,6 +70,11 @@ class Request
 	 */
 	public function set_interface($interface = '')
 	{
+		if (!empty($interface) && preg_match("/\W/", $interface) == 1)
+		{
+			throw new \phpBBJSON\Exception\BadFormat('The specified interface used unauthorized characters.');
+		}
+		
 		$this->interface = $interface;
 	}
 	
