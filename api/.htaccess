@@ -1,0 +1,5 @@
+# Enable Rewriting
+RewriteEngine On
+
+# And the rule
+RewriteRule ^([A-Za-z0-9_]+)/([A-Za-z0-9_]+)/?$ index.php?module=$1&interface=$2 [L]
