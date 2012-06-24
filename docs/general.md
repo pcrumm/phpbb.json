@@ -17,7 +17,7 @@ Example: Module: auth, Interface: login:
 A trailing slash is optional following the interface specification.
 
 #### Specifying Data
-All data elements shall be encoded using JSON and submitted, via GET or POST, in this format, as the _data_ field. A sample request to `module/interface` may, for instance, utilize the following data array:
+All data elements shall be encoded using JSON and submitted, via POST, in this format, as the _data_ field. A sample request to `module/interface` may, for instance, utilize the following data array:
 
 	$my_data = array(
 		'username'	=> 'phil',
@@ -29,9 +29,9 @@ We JSON encode `$my_data` (we can use PHP's `json_encode()` function for this), 
 	
 We then submit this data, using the _data_ field of the request. We URL encode the contents of our request data.
 
-	curl --data-urlencode 'data={"username":"phil","realname":"Phil Crumm"}' http://example.com/phpbb3/modue/interface
+	curl --data-urlencode 'data={"username":"phil","realname":"Phil Crumm"}' http://example.com/phpbb3/module/interface
 	
-Note that, though we can submit this data via POST or GET, convention favors POST; this prevents the filling of logs with extraneous information, and the potential disclosure of sensitive information (e.g. passwords) in these logs.
+Note that all requests must be submitted via POST, to prevent sensitive information from being disclosed in server side logs.
 
 If there is no data to be sent, an empty JSON array (`{}`) should be sent.
 
