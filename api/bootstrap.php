@@ -7,6 +7,9 @@
 include_once('constants.php');
 
 // Setup exceptions
+include_once(INCLUDES_DIR . 'exception_handler.php');
+set_exception_handler('\phpBBJSON\exception_handler');
+
 include_once(INCLUDES_DIR . 'exceptions/generic.php');
 include_once(INCLUDES_DIR . 'exceptions/bad_format.php');
 include_once(INCLUDES_DIR . 'exceptions/internal_error.php');
@@ -21,4 +24,4 @@ include_once(INCLUDES_DIR . 'response.php');
 include_once(INCLUDES_DIR . 'modules/base.php');
 
 // Setup phpBB
-include('bootstrap_phpbb.php');
+include_once('bootstrap_phpbb.php');
