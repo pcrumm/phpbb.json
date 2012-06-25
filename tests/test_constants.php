@@ -8,6 +8,7 @@
 define('TEST_API_ROOT', getcwd() . '/../../api/');
 define('TEST_MOCK_ROOT', getcwd() . '/../mock/');
 define('INCLUDES_DIR', TEST_API_ROOT . 'includes/');
+define('MODULES_DIR', INCLUDES_DIR . 'modules/');
 
 // Setup exceptions
 include(INCLUDES_DIR . 'exceptions/generic.php');

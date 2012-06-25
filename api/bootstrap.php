@@ -20,6 +20,9 @@ include_once(INCLUDES_DIR . 'exceptions/unimplemented.php');
 include_once(INCLUDES_DIR . 'request.php');
 include_once(INCLUDES_DIR . 'response.php');
 
+// Include our module system
+include_once(INCLUDES_DIR . 'module.php');
+
 // All of our modules need this, so we'll include it
 include_once(INCLUDES_DIR . 'modules/base.php');
 
