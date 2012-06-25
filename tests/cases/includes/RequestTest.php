@@ -84,7 +84,22 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		$request = new \phpBBJSON\Request();
 		
 		$request->set_module($new_module);
-		$this->assertEquals($request->get_module(), $new_module);
+		$this->assertEquals($request->get_module(), ucwords($new_module));
+	}
+	
+	/**
+	 * Ensures that explicitly set modules are properly translated into class name form.
+	 *
+	 * @covers \phpBBJSON\Response::set_module
+	 * @depends testSetAndRetrieveModule
+	 */
+	public function testSetModuleTranslation()
+	{
+		$new_module = 'modular_with_some_Underscores_OKAY';
+		$request = new \phpBBJSON\Request();
+		
+		$request->set_module($new_module);
+		$this->assertEquals($request->get_module(), 'ModularWithSomeUnderscoresOkay');
 	}
 	
 	public function testSetAndRetrieveInterface()
@@ -132,7 +147,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
 		
 		$request = new \phpBBJSON\Request();
 		
-		$this->assertEquals($request->get_module(), $_REQUEST['module']);
+		$this->assertEquals($request->get_module(), ucwords($_REQUEST['module']));
 		$this->assertEquals($request->get_interface(), $_REQUEST['interface']);
 		$this->assertEquals($request->get_argument('username'), 'phil');
 		$this->assertEquals($request->get_data('foo'), 'bar');

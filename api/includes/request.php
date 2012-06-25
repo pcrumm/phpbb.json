@@ -40,6 +40,7 @@ class Request
 	
 	/**
 	 * Sets the module for the request to the one specified.
+	 * Reformats the passed module into the proper form (CamelCase, not camel_case)
 	 *
 	 * @param string $module
 	 */
@@ -49,6 +50,12 @@ class Request
 		{
 			throw new \phpBBJSON\Exception\BadFormat('The specified module used unauthorized characters.');
 		}
+		
+		// Underscores to spaces so we can use ucwords
+		$module = ucwords(strtolower(str_replace('_', ' ', $module)));
+		
+		// And back
+		$module = str_replace(' ', '', $module);
 		
 		$this->module = $module;
 	}
