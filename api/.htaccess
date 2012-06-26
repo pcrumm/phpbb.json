@@ -1,5 +1,8 @@
 # Enable Rewriting
 RewriteEngine On
 
-# And the rule
+# Properly formatting requests
 RewriteRule ^([A-Za-z0-9_]+)/([A-Za-z0-9_]+)/?$ index.php?module=$1&interface=$2 [L]
+
+# No interface
+RewriteRule ^([A-Za-z0-9_]+)/?$ index.php?module=$1 [L]
