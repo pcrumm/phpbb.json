@@ -11,6 +11,8 @@
 require_once './../bootstrap.php';
 require_once TEST_API_ROOT . 'includes/module.php';
 require_once TEST_MOCK_ROOT . 'includes/request.php';
+require_once TEST_MOCK_ROOT . 'includes/verify.php';
+require_once TEST_MOCK_ROOT . 'includes/phpbb.php';
 require_once MODULES_DIR . 'base.php';
 
 class ModuleTest extends PHPUnit_Framework_TestCase
@@ -111,7 +113,11 @@ class ModuleTest extends PHPUnit_Framework_TestCase
 	 */
 	private function buildModule(\phpBBJSON\Mock\Request $request)
 	{
-		$module = new \phpBBJSON\Module($request);
+		// Create the mock instances we need to properly instantiate a module
+		$phpbb = new \phpBBJSON\Mock\phpBB();
+		$verify = new \phpBBJSON\Mock\Verify($request);
+		
+		$module = new \phpBBJSON\Module($request, $verify, $phpbb);
 		
 		return $module;
 	}
