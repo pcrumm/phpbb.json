@@ -10,6 +10,9 @@ include ('bootstrap.php');
 // Grab a request object
 $request = new \phpBBJSON\Request($_REQUEST);
 
+// And a verification object
+$verify = new \phpBBJSON\Verify($request);
+
 // And let the module take care of it
-$module = new \phpBBJSON\Module($request);
+$module = new \phpBBJSON\Module($request, $verify, $phpbb);
 $module->route();

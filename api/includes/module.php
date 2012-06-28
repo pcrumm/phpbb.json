@@ -12,14 +12,27 @@
 namespace phpBBJSON;
 class Module
 {
+	/**
+	 * @var \phpBBJSON\Request
+	 */
 	private $request;
+	
+	/**
+	 * @var \phpBBJSON\Verify
+	 */
+	private $verify;
+	
+	/**
+	 * @var \phpBBJSON\phpbb
+	 */
+	private $phpbb;
 	
 	/**
 	 * Builds the module class. A Request object is passed as the basis.
 	 *
 	 * @param \phpBBJSON\Request $request
 	 */
-	public function __construct(\phpBBJSON\Request $request)
+	public function __construct(\phpBBJSON\Request $request, \phpBBJSON\Verify $verify, \phpBBJSON\phpBB $phpbb)
 	{
 		$this->request = $request;
 		
@@ -36,6 +49,9 @@ class Module
 		{
 			$request->set_interface('default_action');
 		}
+		
+		$this->verify = $verify;
+		$this->phpbb = $phpbb;
 	}
 	
 	/**
@@ -131,7 +147,7 @@ class Module
 		
 		$callable_module = '\phpBBJSON\Module\\' . $module_name;
 		
-		$module = new $callable_module();
+		$module = new $callable_module($this->verify, $this->phpbb);
 		$module->$interface($this->request);
 	}
 }

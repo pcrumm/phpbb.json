@@ -11,10 +11,14 @@ namespace phpBBJSON\Module;
 class Base
 {
 	private $response;
+	private $verify;
+	private $phpbb;
 	
-	public function __construct()
+	public function __construct(\phpBBJSON\Verify $verify, \phpbBJSON\phpBB $phpbb)
 	{
 		$this->response = new \phpBBJSON\Response();
+		$this->verify = $verify;
+		$this->phpbb = $phpbb;
 	}
 	
 	/**
