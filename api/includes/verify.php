@@ -82,6 +82,11 @@ class Verify
 	 */
 	 public function is_auth()
 	 {
+		 if (!isset($this->is_auth))
+		 {
+			 $this->is_auth = !$this->no_fields_present();
+		 }
+		 
 		 return $this->is_auth;
 	 }
 	
