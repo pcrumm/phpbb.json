@@ -17,6 +17,9 @@ class DefaultAction extends \phpBBJSON\Module\Base
 	public function default_action()
 	{
 		$module_base_path = MODULES_DIR;
+		$disallowed_modules = array(
+			'Base',
+		);
 		
 		// Get all of the PHP files in the module directory and reformat their names
 		$modules = array();
@@ -33,7 +36,10 @@ class DefaultAction extends \phpBBJSON\Module\Base
 					$file_name = ucwords(str_replace('_', ' ', $file_name));
 					$file_name = str_replace(' ', '', $file_name);
 					
-					$modules[] = $file_name;
+					if (!in_array($file_name, $disallowed_modules))
+					{
+						$modules[] = $file_name;
+					}
 				}
 			}
 		}
