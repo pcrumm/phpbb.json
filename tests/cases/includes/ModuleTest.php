@@ -107,6 +107,34 @@ class ModuleTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
+	 * Verify that disallowed modules do not route.
+	 *
+	 * @expectedException \phpBBJSON\Exception\Unimplemented
+	 */
+	public function testDisallowedModule()
+	{
+		$request = $this->buildRequest('base', 'default_action');
+		$module = $this->buildModule($request);
+		
+		ob_start(); // Suppress the output
+		$module->route();
+	}
+	
+	/**
+	 * Verify that disallowed interfaces. do not route.
+	 *
+	 * @expectedException \phpBBJSON\Exception\Unimplemented
+	 */
+	public function testDisallowedInterface()
+	{
+		$request = $this->buildRequest('default_action', '__construct');
+		$module = $this->buildModule($request);
+		
+		ob_start(); // Suppress the output
+		$module->route();
+	}
+	
+	/**
 	 * Provides a mocked module handler for testing.
 	 *
 	 * @argument \phpBBJSON\Mock\Request $request

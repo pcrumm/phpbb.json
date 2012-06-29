@@ -61,7 +61,10 @@ class Module
 	 */
 	public function request_valid()
 	{
-		return ($this->module_exists($this->request->get_module()) && $this->interface_exists($this->request->get_module(), $this->request->get_interface()));
+		$module = $this->request->get_module();
+		$interface = $this->request->get_interface();
+		
+		return ($this->module_allowed($module) && $this->interface_allowed($interface) && $this->module_exists($module) && $this->interface_exists($module, $interface));
 	}
 	
 	/**
@@ -69,7 +72,7 @@ class Module
 	 */
 	public function route()
 	{
-		$this->call_interface($this->request->get_module(), $this->request->get_interface());
+		$this->call_interface();
 	}
 	
 	/**
@@ -97,6 +100,23 @@ class Module
 		}
 
 		return false;
+	}
+	
+	/**
+	 * Verifies that the specified module is allowed.
+	 * Currently, we hard code a list of disallowed modules.
+	 *
+	 * @param string $module_name The name to check against
+	 * @return bool
+	 */
+	private function module_allowed($module_name)
+	{
+		// Utilized the filename version of module names for this check
+		$disallowed_modules = array(
+			'base',
+		);
+		
+		return !in_array($this->get_module_filename($module_name), $disallowed_modules);
 	}
 	
 	/**
@@ -132,22 +152,33 @@ class Module
 	}
 	
 	/**
+	 * Determines if an interface is allowed.
+	 * An "allowed" interface is any interface that does not
+	 * map to an internal function (a function prefixed with __)
+	 *
+	 * @param string $interface The interface to check
+	 * @return bool
+	 */
+	private function interface_allowed($interface)
+	{
+		return (strpos($interface, '__' ) === false);
+	}
+	
+	/**
 	 * Calls the given interface in the specified module.
 	 *
-	 * @param string $module_name The name of the module to search for
-	 * @param string $interface The name of the interface to utilize
 	 * @return mixed The return value from the called function
 	 */
-	private function call_interface($module_name, $interface)
+	private function call_interface()
 	{
-		if (!$this->interface_exists($module_name, $interface))
+		if (!$this->request_valid())
 		{
 			throw new \phpBBJSON\Exception\Unimplemented('The specified module or interface does not exist.');
 		}
 		
-		$callable_module = '\phpBBJSON\Module\\' . $module_name;
+		$callable_module = '\phpBBJSON\Module\\' . $this->request->get_module();
 		
 		$module = new $callable_module($this->verify, $this->phpbb);
-		$module->$interface($this->request);
+		$module->{$this->request->get_interface()}($this->request);
 	}
 }
