@@ -10,20 +10,11 @@
 namespace phpBBJSON\Module;
 class DefaultAction extends \phpBBJSON\Module\Base
 {
-	private $response;
-	
-	public function __construct()
-	{
-		$this->response = new \phpBBJSON\Response();
-	}
-	
 	/**
 	 * We do something a little differently here, and list all of the available
 	 * modules.
-	 *
-	 * @param \phpBBJSON\Request $request
 	 */
-	public function default_action(\phpBBJSON\Request $request)
+	public function default_action()
 	{
 		$module_base_path = MODULES_DIR;
 		

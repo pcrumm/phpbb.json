@@ -178,7 +178,7 @@ class Module
 		
 		$callable_module = '\phpBBJSON\Module\\' . $this->request->get_module();
 		
-		$module = new $callable_module($this->verify, $this->phpbb);
-		$module->{$this->request->get_interface()}($this->request);
+		$module = new $callable_module($this->request, $this->verify, $this->phpbb);
+		$module->{$this->request->get_interface()}();
 	}
 }

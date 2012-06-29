@@ -10,13 +10,15 @@
 namespace phpBBJSON\Module;
 class Base
 {
-	private $response;
-	private $verify;
-	private $phpbb;
+	protected $response;
+	protected $request;
+	protected $verify;
+	protected $phpbb;
 	
-	public function __construct(\phpBBJSON\Verify $verify, \phpbBJSON\phpBB $phpbb)
+	public function __construct(\phpBBJSON\Request $request, \phpBBJSON\Verify $verify, \phpbBJSON\phpBB $phpbb)
 	{
 		$this->response = new \phpBBJSON\Response();
+		$this->request = $request;
 		$this->verify = $verify;
 		$this->phpbb = $phpbb;
 	}
@@ -27,7 +29,7 @@ class Base
 	 *
 	 * @param \phpBBJSON\Request $request
 	 */
-	public function default_action(\phpBBJSON\Request $request)
+	public function default_action()
 	{
 		$methods = get_class_methods($this);
 		
