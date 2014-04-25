@@ -5,11 +5,10 @@
  */
 
 // Some constants for our own API
-
+global $table_prefixes;
 define('API_ROOT', './');
 define('INCLUDES_DIR', API_ROOT . 'includes/');
-define('MODULES_DIR',  API_ROOT . 'modules/');
-
+define('MODULES_DIR',  API_ROOT . 'includes/modules/');
 // Some constants needed to include phpBB "legally"
 define('PHPBB_ROOT', API_ROOT . '../'); 	// Path to phpBB installation
 define('PHPBB_PHP_EXT', 'php'); 		// PHP extension

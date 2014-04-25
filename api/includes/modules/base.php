@@ -51,7 +51,6 @@ class Base
 	protected function filter_interface($interface)
 	{
 		$reflector = new \ReflectionMethod(get_class(), $interface);
-		
 		return ((strpos($interface, '__') === false) && $reflector->isPublic());
 	}
 }
