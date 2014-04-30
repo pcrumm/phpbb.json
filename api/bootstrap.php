@@ -31,3 +31,5 @@ include_once(INCLUDES_DIR . 'modules/base.php');
 
 // Setup phpBB
 include_once('bootstrap_phpbb.php');
+
+include(INCLUDES_DIR . 'functions.php');
