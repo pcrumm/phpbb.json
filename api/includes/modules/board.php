@@ -28,7 +28,7 @@ class Board extends \phpBBJSON\Module\Base {
         $secret = ($this->request->get_data('secret') != '' && \phpBBJSON\verifySecret($this->request->get_data('secret'))) ? $this->request->get_data('secret') : null;
         $parent_id = $this->request->get_data('parent_id');
         
-        if($parent_id != '' || empty($parent_id)) {
+        if($parent_id == '' || empty($parent_id)) {
             $parent_id = 0;
         }
         
