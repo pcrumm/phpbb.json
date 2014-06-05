@@ -1,11 +1,16 @@
 #forum
 The *forum* module handles actions related to individual forums.
 
+
 ## info
 Lists statistics for a forum.
 
 ### Data
 * forum_id - (integer)
+    
+
+		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/Forum/info
+
 
 ### Result
 * total_topics
