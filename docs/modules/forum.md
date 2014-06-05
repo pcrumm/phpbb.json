@@ -22,9 +22,13 @@ List topics in a forum, sorted chronologically (newest first).
 
 ### Data
 * forum_id - (integer) The numeric ID of the forum
-* per_page - (integer, optional: defaults to board setting) The number of topics to return
-* page - (integer, optional: defaults to 1) the page to display. Uses the per_page setting to determine offset
+* per_page - (integer, optional: defaults to board setting) The number of topics to return (coming soon..)
+* page - (integer, optional: defaults to 1) the page to display. Uses the per_page setting to determine offset (coming soon..)
 
+
+		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/Forum/topicList
+		
+		
 ### Result
 A two-dimensional JSON array containing topic data:
 
