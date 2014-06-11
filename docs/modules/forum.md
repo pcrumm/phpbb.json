@@ -9,7 +9,7 @@ Lists statistics for a forum.
 * forum_id - (integer)
     
 
-		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/Forum/info
+		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/forum/info
 
 
 ### Result
@@ -22,12 +22,12 @@ List topics in a forum, sorted chronologically (newest first).
 
 ### Data
 * forum_id - (integer) The numeric ID of the forum
-* per_page - (integer, optional: defaults to board setting) The number of topics to return (coming soon..)
-* page - (integer, optional: defaults to 1) the page to display. Uses the per_page setting to determine offset (coming soon..)
+* per_page - (integer, optional: defaults to board setting) The number of topics to return
+* page - (integer, optional: defaults to 1) the page to display. Uses the per_page setting to determine offset
 
 
-		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/Forum/topicList
-		
+		curl --data-urlencode 'data={"forum_id":12}' http://example.com/phpbb/api/forum/topicList
+		curl --data-urlencode 'data={"forum_id":12,"per_page":10,"page": 4}' http://example.com/phpbb/api/forum/topicList
 		
 ### Result
 A two-dimensional JSON array containing topic data:
