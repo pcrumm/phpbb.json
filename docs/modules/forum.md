@@ -67,7 +67,7 @@ Create a new topic. __You must be authenticated.__
 * topic_body - (string)
 
 
-	curl --data-urlencode 'data={"secret":"7efcbd2bda7a1a59dfa3e4422a4ae3a05094da3be662ce62","forum_id":2,"topic_title":"A test topic","topic_body":"A test topic"}' http://example.com/phpbb/api/forum/newTopic
+		curl --data-urlencode 'data={"secret":"7efcbd2bda7a1a59dfa3e4422a4ae3a05094da3be662ce62","forum_id":2,"topic_title":"A test topic","topic_body":"A test topic"}' http://example.com/phpbb/api/forum/newTopic
 
 ### Result
 * topic_id - (integer) The ID of the newly created topic
